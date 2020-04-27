@@ -30,6 +30,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
+    @IBAction func clearClicked(_ sender: Any) {
+        if UserDefaults.standard.object(forKey: "name") as? String != nil {
+                 UserDefaults.standard.removeObject(forKey: "name")
+        }
+        if UserDefaults.standard.object(forKey: "birthday") as? String != nil {
+                UserDefaults.standard.removeObject(forKey: "birthday")
+        }
+    }
     @IBAction func saveClicked(_ sender: Any) {
         UserDefaults.standard.set(nameTextField.text!, forKey: "name")
         UserDefaults.standard.set(birthdayTextField.text!, forKey: "birthday")
